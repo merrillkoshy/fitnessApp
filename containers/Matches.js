@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from '../assets/styles';
+import React from "react";
+import styles from "../assets/styles";
 
 import {
   ScrollView,
@@ -8,44 +8,44 @@ import {
   TouchableOpacity,
   ImageBackground,
   FlatList
-} from 'react-native';
-import CardItem from '../components/CardItem';
-import Icon from '../components/Icon';
-import Demo from '../assets/data/demo.js';
-
+} from "react-native";
+import CardItem from "../components/CardItem";
+import Icon from "../components/Icon";
+import Demo from "../assets/data/demo.js";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 const Matches = () => {
   return (
     <ImageBackground
-      source={require('../assets/images/bg.png')}
+      source={require("../assets/images/bg.png")}
       style={styles.bg}
     >
       <View style={styles.containerMatches}>
-        <ScrollView>
-          <View style={styles.top}>
-            <Text style={styles.title}>Matches</Text>
-            <TouchableOpacity>
-              <Text style={styles.icon}>
-                <Icon name="optionsV" />
-              </Text>
-            </TouchableOpacity>
-          </View>
-
-          <FlatList
-            numColumns={2}
-            data={Demo}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => (
+        <FlatList
+          ListHeaderComponent={
+            <View style={styles.top}>
+              <Text style={styles.title}>Matches</Text>
               <TouchableOpacity>
-                <CardItem
-                  image={item.image}
-                  name={item.name}
-                  status={item.status}
-                  variant
-                />
+                <Text style={styles.icon}>
+                  <FontAwesomeIcon icon={faPlus} style={styles.icon} />
+                </Text>
               </TouchableOpacity>
-            )}
-          />
-        </ScrollView>
+            </View>
+          }
+          numColumns={2}
+          data={Demo}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <TouchableOpacity>
+              <CardItem
+                image={item.image}
+                name={item.name}
+                status={item.status}
+                variant
+              />
+            </TouchableOpacity>
+          )}
+        />
       </View>
     </ImageBackground>
   );

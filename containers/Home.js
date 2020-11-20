@@ -1,16 +1,16 @@
-import React from 'react';
-import { View, ImageBackground } from 'react-native';
-import CardStack, { Card } from 'react-native-card-stack-swiper';
-import City from '../components/City';
-import Filters from '../components/Filters';
-import CardItem from '../components/CardItem';
-import styles from '../assets/styles';
-import Demo from '../assets/data/demo.js';
+import React from "react";
+import { View, ImageBackground } from "react-native";
+import CardStack, { Card } from "react-native-card-stack-swiper";
+import City from "../components/City";
+import Filters from "../components/Filters";
+import CardItem from "../components/CardItem";
+import styles from "../assets/styles";
+import Demo from "../assets/data/demo.js";
 
 const Home = () => {
   return (
     <ImageBackground
-      source={require('../assets/images/bg.png')}
+      source={require("../assets/images/bg.png")}
       style={styles.bg}
     >
       <View style={styles.containerHome}>

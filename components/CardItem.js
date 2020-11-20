@@ -1,8 +1,19 @@
-import React from 'react';
-import styles from '../assets/styles';
+import React from "react";
+import styles from "../assets/styles";
 
-import { Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
-import Icon from './Icon';
+import { Text, View, Image, Dimensions, TouchableOpacity } from "react-native";
+
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {
+  faCoffee,
+  faBeer,
+  faCircle,
+  faCheck,
+  faHeart,
+  faStar,
+  faThumbsUp,
+  faThumbsDown
+} from "@fortawesome/free-solid-svg-icons";
 
 const CardItem = ({
   actions,
@@ -16,7 +27,8 @@ const CardItem = ({
   variant
 }) => {
   // Custom styling
-  const fullWidth = Dimensions.get('window').width;
+  const fullWidth = Dimensions.get("window").width;
+
   const imageStyle = [
     {
       borderRadius: 8,
@@ -30,7 +42,7 @@ const CardItem = ({
     {
       paddingTop: variant ? 10 : 15,
       paddingBottom: variant ? 5 : 7,
-      color: '#363636',
+      color: "#363636",
       fontSize: variant ? 15 : 30
     }
   ];
@@ -44,7 +56,8 @@ const CardItem = ({
       {matches && (
         <View style={styles.matchesCardItem}>
           <Text style={styles.matchesTextCardItem}>
-            <Icon name="heart" /> {matches}% Match!
+            <FontAwesomeIcon icon={faHeart} style={styles.heart} />
+            {matches}% Match!
           </Text>
         </View>
       )}
@@ -60,7 +73,7 @@ const CardItem = ({
       {/* STATUS */}
       {status && (
         <View style={styles.status}>
-          <View style={status === 'Online' ? styles.online : styles.offline} />
+          <View style={status === "Online" ? styles.online : styles.offline} />
           <Text style={styles.statusText}>{status}</Text>
         </View>
       )}
@@ -70,29 +83,19 @@ const CardItem = ({
         <View style={styles.actionsCardItem}>
           <TouchableOpacity style={styles.miniButton}>
             <Text style={styles.star}>
-              <Icon name="star" />
+              <FontAwesomeIcon icon={faStar} style={styles.star} />
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.button} onPress={() => onPressLeft()}>
-            <Text style={styles.like}>
-              <Icon name="like" />
-            </Text>
+            <FontAwesomeIcon icon={faThumbsUp} style={styles.like} />
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.button}
             onPress={() => onPressRight()}
           >
-            <Text style={styles.dislike}>
-              <Icon name="dislike" />
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.miniButton}>
-            <Text style={styles.flash}>
-              <Icon name="flash" />
-            </Text>
+            <FontAwesomeIcon icon={faThumbsDown} style={styles.dislike} />
           </TouchableOpacity>
         </View>
       )}

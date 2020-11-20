@@ -1,9 +1,16 @@
-import React from 'react';
-import styles from '../assets/styles';
+import React from "react";
+import styles from "../assets/styles";
 
-import { Text, View } from 'react-native';
-import Icon from './Icon';
+import { Text, View } from "react-native";
 
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {
+  faHeart,
+  faUser,
+  faCircle,
+  faHashtag,
+  faCalendar
+} from "@fortawesome/free-solid-svg-icons";
 const ProfileItem = ({
   age,
   info1,
@@ -18,7 +25,8 @@ const ProfileItem = ({
     <View style={styles.containerProfileItem}>
       <View style={styles.matchesProfileItem}>
         <Text style={styles.matchesTextProfileItem}>
-          <Icon name="heart" /> {matches}% Match!
+          <FontAwesomeIcon icon={faHeart} style={styles.heart} />
+          {matches}% Match!
         </Text>
       </View>
 
@@ -30,28 +38,28 @@ const ProfileItem = ({
 
       <View style={styles.info}>
         <Text style={styles.iconProfile}>
-          <Icon name="user" />
+          <FontAwesomeIcon icon={faUser} style={styles.iconProfile} />
         </Text>
         <Text style={styles.infoContent}>{info1}</Text>
       </View>
 
       <View style={styles.info}>
         <Text style={styles.iconProfile}>
-          <Icon name="circle" />
+          <FontAwesomeIcon icon={faCircle} style={styles.iconProfile} />
         </Text>
         <Text style={styles.infoContent}>{info2}</Text>
       </View>
 
       <View style={styles.info}>
         <Text style={styles.iconProfile}>
-          <Icon name="hashtag" />
+          <FontAwesomeIcon icon={faHashtag} style={styles.iconProfile} />
         </Text>
         <Text style={styles.infoContent}>{info3}</Text>
       </View>
 
       <View style={styles.info}>
         <Text style={styles.iconProfile}>
-          <Icon name="calendar" />
+          <FontAwesomeIcon icon={faCalendar} style={styles.iconProfile} />
         </Text>
         <Text style={styles.infoContent}>{info4}</Text>
       </View>
